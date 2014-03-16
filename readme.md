@@ -4,7 +4,7 @@ Please read the [project page for `doing` by Brett Terpstra](http://brettterpstr
 
 ## How to use
 
-1. Follow his instructions (tl;dr: `gem install doing`)
+1. Follow [his instructions](http://brettterpstra.com/projects/doing/) (tl;dr: `gem install doing`)
 2. [Install this Workflow](https://github.com/EvanLovely/alfred--doing/raw/master/Doing.alfredworkflow)
 3. Type `doing ?` to get a Large Type display of your recent items. Identical to running `doing recent`. 
 4. Type `doing "new item to do"` to add "new item to do" to your current list. Identical to running `doing now "new item to do"`.
