@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.evanlovely.doing</string>
+	<key>connections</key>
+	<dict>
+		<key>1E693007-8002-424D-8A01-6C1C0106315B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>71C2B57B-8503-4458-B3F1-295D24FD039F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>71C2B57B-8503-4458-B3F1-295D24FD039F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8D57A61A-D244-4C01-8A6B-7492D218EEFD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Evan Lovely</string>
+	<key>description</key>
+	<string>Helper for Brett Terpstra's `doing` CLI</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Doing</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>source ~/.bash_profile
+
+if [ "{query}" == ? ]; then
+    osascript -e '
+      set _doing to do shell script "doing recent"
+      tell application "Alfred 2" to search _doing
+      tell application "System Events"
+          keystroke "l" using {command down, option down}
+      end tell
+    '
+  else
+  doing now "{query}"
+    echo "Added new task"
+fi</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>71C2B57B-8503-4458-B3F1-295D24FD039F</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>doing</string>
+				<key>text</key>
+				<string>Doing</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>1E693007-8002-424D-8A01-6C1C0106315B</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Doing</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>8D57A61A-D244-4C01-8A6B-7492D218EEFD</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>1E693007-8002-424D-8A01-6C1C0106315B</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>71C2B57B-8503-4458-B3F1-295D24FD039F</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>8D57A61A-D244-4C01-8A6B-7492D218EEFD</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://evanlovely.com</string>
+</dict>
+</plist>
