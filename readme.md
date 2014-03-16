@@ -6,7 +6,7 @@ Please read the [project page for `doing` by Brett Terpstra](http://brettterpstr
 
 1. Follow [his instructions](http://brettterpstra.com/projects/doing/) (tl;dr: `gem install doing`)
 2. [Install this Workflow](https://github.com/EvanLovely/alfred--doing/raw/master/Doing.alfredworkflow)
-3. Type `doing ?` to get a Large Type display of your recent items. Identical to running `doing recent`. 
+3. Type `doing ?` to get a Large Type display of your recent items. Identical to running `doing recent`. Hold Command to get the list from the Later list. Identitcal to running `doing show later`.
 4. Type `doing "new item to do"` to add "new item to do" to your current list. Identical to running `doing now "new item to do"`. Hold Command to send it to the Later List, identical to running `doing later "item to do"`.
 
 ### How to make sure Alfred's query window is dismissed after running `doing ?`

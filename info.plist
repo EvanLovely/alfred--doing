@@ -41,27 +41,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>doing</string>
-				<key>subtext</key>
-				<string>Add new item to Currently list. Type ? to get recent items back. Hold Cmd to add to Later.</string>
-				<key>text</key>
-				<string>Doing</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>1E693007-8002-424D-8A01-6C1C0106315B</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>script</key>
@@ -91,11 +70,43 @@ fi</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>doing</string>
+				<key>subtext</key>
+				<string>Add new item to Currently list. Type ? to get recent items back. Hold Cmd to work with Later list.</string>
+				<key>text</key>
+				<string>Doing</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>1E693007-8002-424D-8A01-6C1C0106315B</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>script</key>
 				<string>source ~/.bash_profile
-doing later "{query}"</string>
+
+if [ "{query}" == ? ]; then
+    osascript -e '
+      set _doing to do shell script "doing show later"
+      tell application "Alfred 2" to search _doing
+      tell application "System Events"
+          keystroke "l" using {command down, option down}
+      end tell
+    '
+  else
+  doing later "{query}"
+fi</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
